@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Rubik', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, a, p, span, input, textarea {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.btn {
+    min-width: 120px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #a5a5a5;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &-secondary {
+        background-color: #3232d4;
+
+        &:hover {
+            background-color: #2222b1;
+        }
+    }
+
+    &-primary {
+        background-color: #bd2b2b;
+
+        &:hover {
+            background-color: #731616;
+        }
+    }
+
+    &-access {
+        background-color: #319431;
+
+        &:hover {
+            background-color: #256f25;
+        }
+    }
+}

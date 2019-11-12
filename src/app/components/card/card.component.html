@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-img">
+        <img [src]="good.img" alt="" />
+    </div>
+    <a [routerLink]="['good', good.id]" class="card-desc">
+        <span class="card-title">{{ good.title }}</span>
+        <span class="card-price">{{ good.price }} руб.</span>
+    </a>
+    <div class="card-panel">
+        <div class="card-panel-amount">
+            <span class="amount-manage" (click)="amountMinus()">-</span>
+            <span class="amount-count">{{ amount }}</span>
+            <span class="amount-manage" (click)="amountPlus()">+</span>
+        </div>
+        <button class="btn btn-secondary" (click)="walletService.addToWallet(good, amount)">В корзину</button>
+    </div>
+</div>

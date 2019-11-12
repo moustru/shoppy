@@ -1,0 +1,29 @@
+<div class="main">
+    <header class="header">
+        <h1 class="header-title">Shoppy</h1>
+    </header>
+    <div class="main-catalog">
+        <card *ngFor="let card of cardsService.goods.default" [good]="card" class="card"></card>
+    </div>
+    <div class="cart-icon" (click)="toggleCart()">
+        <i class="material-icons">shopping_cart</i>
+        <span class="cart-icon-count">{{ walletService.wallet.length }}</span>
+    </div>
+    <div class="cart" *ngIf="showCart">
+        <div class="cart-head">
+            <h2 class="cart-head-title">Корзина</h2>
+        </div>
+        <div class="cart-body">
+            <cart-item *ngFor="let item of walletService.wallet" [item]="item" class="cart-item"></cart-item>
+            <div class="no-items" *ngIf="!walletService.wallet.length">Корзина пуста</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-footer-buttons">
+                <button class="btn btn-access">Оформить заказ</button>
+                <button class="btn btn-primary" (click)="walletService.clearWallet()">Очистить корзину</button>
+            </div>
+            <span class="cart-footer-count">Итоговая стоимость: {{ walletService.wallet | totalCount }} руб.</span>
+        </div>
+        <div class="overlay" (click)="toggleCart()"></div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="cart-item">
+    <div class="cart-item-img">
+        <img [src]="item.img" alt="" />
+    </div>
+    <div class="cart-item-desc">
+        <span class="desc-title">{{ item.title }}</span>
+        <span class="desc-price">{{ item.price }} руб. X {{ item.amount }} шт. = {{ item.price * item.amount }} руб.</span>
+        <button class="btn btn-primary" (click)="walletService.removeFromWallet(item.id)">Удалить</button>
+    </div>
+</div>
