@@ -11,5 +11,6 @@ export interface Good {
 
 @Injectable({ providedIn: 'root' })
 export class CardsService {
+    searchString: string = ''
     goods: Good[] = GOODS
 }

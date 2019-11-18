@@ -8,8 +8,11 @@ export interface WalletItem extends Good {
 @Injectable({ providedIn: 'root' })
 export class WalletService {
     wallet: WalletItem[] = []
+    showCart: boolean = false
+    showModalAddGood: Boolean = false
 
     addToWallet(good: WalletItem, amount: number): void {
+        this.showModalAddGood = true
         let addGood = this.wallet.find(x => x.id === good.id)
 
         if(addGood) {
@@ -18,6 +21,8 @@ export class WalletService {
             good.amount = amount
             this.wallet.push(good)
         }
+
+        setTimeout(() => { this.showModalAddGood = false }, 1000)
     }
 
     removeFromWallet(id: string): void {
@@ -27,5 +32,9 @@ export class WalletService {
 
     clearWallet(): void {
         this.wallet = []
+    }
+
+    toggleCart() {
+        this.showCart = !this.showCart
     }
 }

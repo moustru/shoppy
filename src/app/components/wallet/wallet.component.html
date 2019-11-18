@@ -1,0 +1,17 @@
+<div class="cart" *ngIf="walletService.showCart">
+    <div class="cart-head">
+        <h2 class="cart-head-title">Корзина</h2>
+    </div>
+    <div class="cart-body">
+        <cart-item *ngFor="let item of walletService.wallet" [item]="item" class="cart-item"></cart-item>
+        <div class="no-items" *ngIf="!walletService.wallet.length">Корзина пуста</div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-footer-buttons" *ngIf="walletService.wallet.length">
+            <button class="btn btn-access">Оформить заказ</button>
+            <button class="btn btn-primary" (click)="walletService.clearWallet()">Очистить корзину</button>
+        </div>
+        <span class="cart-footer-count">Итоговая стоимость: {{ walletService.wallet | totalCount }} руб.</span>
+    </div>
+    <div class="overlay" (click)="walletService.toggleCart()"></div>
+</div>

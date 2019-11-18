@@ -9,8 +9,13 @@ const routes: Routes = [
     component: MainComponent
   },
   {
-    path: 'good/:id',
-    component: GoodPageComponent
+    path: 'good',
+    children: [
+      {
+        path: ':id',
+        component: GoodPageComponent
+      }
+    ]
   }
 ];
 
